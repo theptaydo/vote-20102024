@@ -5,38 +5,208 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="button.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
+<style>
+  #content {
+    /* display: none; */
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #done {
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
 <body>
-  <style>
-    #content {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    h1 {
-      text-align: center;
-    }
-  </style>
   <div id="content">
+    <section class="radio-section">
+      <div class="radio-list">
+        <h1>Chấm điểm phần thi Trang trí bánh kem 20/11</h1>
+        <h5>Quý anh/chị vui lòng bình chọn đội mình cho là xuất sắc nhất theo thang điểm từ 1-5</h5>
+        <br>
+        <br>
+        <br>
 
+        <div class="group">
+          <h2>Đội công ty Chín Rồng</h2>
+          <h4>Nguyễn Trung Cang, Nguyễn Nhật Tiến, Võ Trung Phục</h4>
+          <br>
+          <div class="radio-item"><input id="team1-radio1" name="team1" type="radio" value="1"><label
+              for="team1-radio1">1 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team1-radio2" name="team1" type="radio" value="2"><label
+              for="team1-radio2">2 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team1-radio3" name="team1" type="radio" value="3"><label
+              for="team1-radio3">3 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team1-radio4" name="team1" type="radio" value="4"><label
+              for="team1-radio4">4 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team1-radio5" name="team1" type="radio" value="5"><label
+              for="team1-radio5">5 ĐIỂM</label></div>
+        </div>
+
+        <div class="group">
+          <h2>Đội VPCT</h2>
+          <h4>Nguyễn Đăng Thành Luân, Phạm Hùng Mạnh, Đinh Trọng Phúc</h4>
+          <br>
+          <div class="radio-item"><input id="team2-radio1" name="team2" type="radio" value="1"><label
+              for="team2-radio1">1 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team2-radio2" name="team2" type="radio" value="2"><label
+              for="team2-radio2">2 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team2-radio3" name="team2" type="radio" value="3"><label
+              for="team2-radio3">3 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team2-radio4" name="team2" type="radio" value="4"><label
+              for="team2-radio4">4 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team2-radio5" name="team2" type="radio" value="5"><label
+              for="team2-radio5">5 ĐIỂM</label></div>
+        </div>
+
+        <div class="group">
+          <h2>Đội Văn phòng các xưởng</h2>
+          <h4>...</h4>
+          <br>
+          <div class="radio-item"><input id="team3-radio1" name="team3" type="radio" value="1"><label
+              for="team3-radio1">1 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team3-radio2" name="team3" type="radio" value="2"><label
+              for="team3-radio2">2 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team3-radio3" name="team3" type="radio" value="3"><label
+              for="team3-radio3">3 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team3-radio4" name="team3" type="radio" value="4"><label
+              for="team3-radio4">4 ĐIỂM</label></div>
+          <div class="radio-item"><input id="team3-radio5" name="team3" type="radio" value="5"><label
+              for="team3-radio5">5 ĐIỂM</label></div>
+        </div>
+
+
+
+        <br>
+        <br>
+        <br>
+
+        <div class="action">
+          <button class="button" onclick="submit()">
+            <div class="button-overlay"></div>
+            <span>Gửi <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 53 58" height="58" width="53">
+                <path stroke-width="9" stroke="currentColor"
+                  d="M44.25 36.3612L17.25 51.9497C11.5833 55.2213 4.5 51.1318 4.50001 44.5885L4.50001 13.4115C4.50001 6.86824 11.5833 2.77868 17.25 6.05033L44.25 21.6388C49.9167 24.9104 49.9167 33.0896 44.25 36.3612Z">
+                </path>
+              </svg></span>
+          </button>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+
+        <hr>
+        <br>
+        <footer>
+          <p>Design by Tran Huu Dang 2024</p>
+        </footer>
+      </div>
+
+
+    </section>
   </div>
+
+  <div id="done">
+    <h1>Đã gửi bình chọn</h1>
+  </div>
+
+
   <script>
-    const cons = localStorage.getItem('davis');
-    // alert(cons);
+    const firebaseURL = 'https://music-vote-tsc-default-rtdb.firebaseio.com/cream-cake.json'; // URL đến database của bạn
+    const done = document.querySelector('#done');
 
-    if (!cons) {
-      localStorage.setItem('davis', 'done');
-      window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSc36QROYGDs4opw3zjMRKCdqZEY26WInim82qq4y4Ayzcoz0Q/viewform';
-      // return;
-    } else {
 
-      const content = document.querySelector('#content');
+    function submit() {
+      // Lấy điểm số từ các input radio của từng đội
+      const team1Score = document.querySelector('input[name="team1"]:checked')?.value || 0;
+      const team2Score = document.querySelector('input[name="team2"]:checked')?.value || 0;
+      const team3Score = document.querySelector('input[name="team3"]:checked')?.value || 0;
 
-      content.innerHTML = `<h1> Bạn đã bình chọn rồi ^^ </h1>`;
+      const initialData = [
+        {
+          id: 1,
+          name: "Công ty Chín Rồng",
+          scope: 0,
+          votes: ""
+        }, {
+          id: 2,
+          name: "Văn phòng công ty",
+          scope: 0,
+          votes: ""
+        }, {
+          id: 3,
+          name: "Văn phòng các xưởng",
+          scope: 0,
+          votes: ""
+        },
+      ];
+
+      // Gọi API GET để lấy dữ liệu hiện tại của các đội
+      fetch(firebaseURL)
+        .then(response => response.json())
+        .then(data => {
+          // Cộng dồn điểm cho từng đội
+          alert(data[1].scope);
+          console.log(data);
+          if (data && data[0] && data[1] && data[2]) {
+            data[0].scope += parseInt(team1Score);
+            data[1].scope += parseInt(team2Score);
+            data[2].scope += parseInt(team3Score);
+          }
+
+          // Gọi API PUT để cập nhật dữ liệu
+          return fetch(firebaseURL, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+        })
+        .then(() => {
+          // Hiển thị thông báo đã gửi
+          const content = document.querySelector('#content');
+          localStorage.setItem('davis', 'done');
+          content.style.display = 'none';
+          done.style.display = 'flex';
+        })
+        .catch(error => {
+          console.error('Error updating data:', error);
+        });
     }
+
+
+    const cons = localStorage.getItem('davis');
+    // Get the full URL (or you can use window.location.search for the query part)
+    const url = new URL(window.location.href);
+    // Create a URLSearchParams object
+    const params = new URLSearchParams(url.search);
+    // Retrieve parameters
+    const clear = params.get('clear');
+
+    // Convert 'clear' to a boolean
+    if (clear === 'true') {
+      // If the clear parameter is 'true', execute the following
+      localStorage.removeItem('davis');
+    }
+
+    if (cons == 'done') {
+      const content = document.querySelector('#content');
+      content.style.display = 'none';
+      done.style.display = 'flex';
+    }
+
 
   </script>
 </body>
