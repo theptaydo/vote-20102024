@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    #content {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+    }
+  </style>
+  <div id="content">
+
+  </div>
+  <script>
+    const cons = localStorage.getItem('davis');
+    // alert(cons);
+
+    if (!cons) {
+      localStorage.setItem('davis', 'done');
+      window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSc36QROYGDs4opw3zjMRKCdqZEY26WInim82qq4y4Ayzcoz0Q/viewform';
+      // return;
+    } else {
+
+      const content = document.querySelector('#content');
+
+      content.innerHTML = `<h1> Bạn đã bình chọn rồi ^^ </h1>`;
+    }
+
+  </script>
+</body>
+
+</html>
