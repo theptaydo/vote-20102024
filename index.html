@@ -161,7 +161,6 @@
         .then(response => response.json())
         .then(data => {
           // Cộng dồn điểm cho từng đội
-          alert(data[1].scope);
           console.log(data);
           if (data && data[0] && data[1] && data[2]) {
             data[0].scope += parseInt(team1Score);
