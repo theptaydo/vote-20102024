@@ -156,12 +156,13 @@
         },
       ];
 
+      let flat = 1;
       // Gọi API GET để lấy dữ liệu hiện tại của các đội
       fetch(firebaseURL)
         .then(response => response.json())
         .then(data => {
-          if (data[0] == 0 || data[1] == 0 || data[2] == 0) {
-            alert('Vui lòng chấm điểm cho tất cả các đội');
+          if (team1Score == 0 || team2Score == 0 || team3Score == 0) {
+            flat = 0;
           } else {
             // Cộng dồn điểm cho từng đội
             console.log(data);
@@ -182,11 +183,15 @@
           }
         })
         .then(() => {
-          // Hiển thị thông báo đã gửi
-          const content = document.querySelector('#content');
-          localStorage.setItem('davis', 'done');
-          content.style.display = 'none';
-          done.style.display = 'flex';
+          if (flat == 0) {
+            alert('Vui lòng chấm điểm cho tất cả các đội');
+          } else {
+            // Hiển thị thông báo đã gửi
+            const content = document.querySelector('#content');
+            localStorage.setItem('davis', 'done');
+            content.style.display = 'none';
+            done.style.display = 'flex';
+          }
         })
         .catch(error => {
           console.error('Error updating data:', error);
