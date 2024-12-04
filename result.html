@@ -39,6 +39,10 @@
       text-align: center;
       margin-top: 20px;
     }
+
+    img {
+      width: 40%;
+    }
   </style>
 </head>
 
@@ -59,7 +63,7 @@
   </table>
 
   <script>
-    const firebaseURL = 'https://music-vote-tsc-default-rtdb.firebaseio.com/cream-cake.json'; // URL đến Firebase
+    const firebaseURL = 'https://music-vote-tsc-default-rtdb.firebaseio.com/qr/-ODErkt3HrfbbiarmRJ3.json'; // URL đến Firebase
 
     // Gọi API GET để lấy dữ liệu từ Firebase
     fetch(firebaseURL)
@@ -75,6 +79,7 @@
             row.innerHTML = `
               <td>${team.name}</td>
               <td>${team.scope}</td>
+              <img src="${team.img}" alt="" srcset="">
             `;
             tableBody.appendChild(row);
           });
